@@ -1,0 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "VT323", monospace;
+  background: #e4e4e4; /* optional dark background */
+  color: black;
+}
