@@ -160,12 +160,23 @@ function getTabContent(tabName) {
   switch (tabName) {
     case "home":
       return `
-        <h1 class="text-4xl font-bold mb-4">Good Evening!</h1>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div class="h-32 bg-purple-200 rounded-lg border-2 border-black flex items-center justify-center font-bold">Mix 1</div>
-            <div class="h-32 bg-blue-200 rounded-lg border-2 border-black flex items-center justify-center font-bold">Top Hits</div>
-            <div class="h-32 bg-green-200 rounded-lg border-2 border-black flex items-center justify-center font-bold">Podcasts</div>
+       <div class="flex flex-col  items-center gap-8 mb-8 w-[80%]">
+        <!-- THE NEW MINI COMPONENT -->
+        <div>
+            <h1 class="text-4xl font-bold">Good Evening!</h1>
+            <p class="text-gray-600">Ready to spin some tracks?</p>
         </div>
+        <mini-phonograph></mini-phonograph>
+        
+        
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="h-32 bg-purple-200 w-[200px] rounded-lg border-2 border-black flex items-center justify-center font-bold">Mix 1</div>
+        <div class="h-32 bg-blue-200 w-[200px] rounded-lg border-2 border-black flex items-center justify-center font-bold">Top Hits</div>
+        <div class="h-32 bg-green-200 w-[200px] rounded-lg border-2 border-black flex items-center justify-center font-bold">Podcasts</div>
+    </div>
+        
       `;
     case "favorites":
       return `
@@ -264,3 +275,139 @@ setTimeout(() => {
     homeBtn.querySelector("svg").classList.add("text-white");
   }
 }, 0);
+
+class MiniPhonograph extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
+
+  connectedCallback() {
+    this.render();
+  }
+
+  render() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: inline-block;
+          width: 250px;
+          height: 250px;
+        }
+
+        /* --- CONTAINER (200x200) --- */
+        .unit {
+          position: relative;
+          width: 250px;
+          height: 250px;
+          background: linear-gradient(145deg, #dee2e6, #adb5bd);
+          border-radius: 15px;
+          box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        /* --- DECK AREA --- */
+        .deck {
+          position: relative;
+          width: 210px;
+          height: 210px;
+          background: #dee2e6;
+          border-radius: 50%;
+          box-shadow: inset 2px 2px 5px #a0a0a0, inset -2px -2px 5px #ffffff;
+        }
+
+        /* --- SPINNING PLATTER --- */
+        .platter {
+          position: absolute;
+          top: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 190px;
+          height: 190px;
+          background: #495057;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          animation: spin 2s linear infinite;
+        }
+
+        /* GROOVES */
+        .grooves {
+          width: 90%;
+          height: 90%;
+          border-radius: 50%;
+          background: repeating-radial-gradient(
+            circle, 
+            #212529, 
+            #212529 2px, 
+            #495057 3px, 
+            #495057 4px
+          );
+        }
+
+        /* LABEL */
+        .label {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 60px;
+          height: 60px;
+          background: #dee2e6;
+          border-radius: 50%;
+          border: 2px solid #212529;
+        }
+
+        /* --- TONEARM (Simplified for small size) --- */
+        .arm-pivot {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 30px;
+          height: 40px;
+          background: #495057;
+          border-radius: 50%;
+          z-index: 10;
+          box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .arm-wand {
+          position: absolute;
+          top: 15px;
+          right: 25px;
+          width: 80px;
+          height: 6px;
+          background: #adb5bd;
+          transform-origin: right center;
+          transform: rotate(-25deg);
+          border-radius: 3px;
+          z-index: 9;
+        }
+
+        @keyframes spin {
+          from { transform: translateX(-50%) rotate(0deg); }
+          to { transform: translateX(-50%) rotate(360deg); }
+        }
+      </style>
+
+      <div class="unit">
+        <div class="deck">
+          <div class="platter">
+            <div class="grooves">
+              <div class="label"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Decoration Arm -->
+        <div class="arm-pivot"></div>
+        <div class="arm-wand"></div>
+      </div>
+    `;
+  }
+}
+customElements.define("mini-phonograph", MiniPhonograph);
