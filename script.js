@@ -160,23 +160,122 @@ function getTabContent(tabName) {
   switch (tabName) {
     case "home":
       return `
-       <div class="flex flex-col  items-center gap-8 mb-8 w-[80%]">
-        <!-- THE NEW MINI COMPONENT -->
-        <div>
-            <h1 class="text-4xl font-bold">Good Evening!</h1>
-            <p class="text-gray-600">Ready to spin some tracks?</p>
-        </div>
-        <mini-phonograph></mini-phonograph>
-        
-        
-    </div>
+        <div class="flex flex-col xl:flex-row gap-12 h-full">
+            
+            <div class="w-full xl:w-[400px] shrink-0 flex flex-col items-center">
+                
+                <div class="mb-6 scale-110">
+                    <mini-phonograph></mini-phonograph>
+                </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <div class="h-32 bg-purple-200 w-[200px] rounded-lg border-2 border-black flex items-center justify-center font-bold">Mix 1</div>
-        <div class="h-32 bg-blue-200 w-[200px] rounded-lg border-2 border-black flex items-center justify-center font-bold">Top Hits</div>
-        <div class="h-32 bg-green-200 w-[200px] rounded-lg border-2 border-black flex items-center justify-center font-bold">Podcasts</div>
-    </div>
-        
+                <div class="w-full text-left mb-2">
+                    <h1 class="text-4xl font-bold mb-1">The Suffering</h1>
+                    <span class="bg-black text-white text-xs px-2 py-1 rounded-full uppercase tracking-wider">Classic</span>
+                </div>
+
+                <div class="w-full flex items-center gap-1 h-12 mb-6 opacity-70">
+                    <div class="w-1 h-4 bg-black rounded-full"></div>
+                    <div class="w-1 h-8 bg-black rounded-full"></div>
+                    <div class="w-1 h-6 bg-black rounded-full"></div>
+                    <div class="w-1 h-10 bg-black rounded-full"></div>
+                    <div class="w-1 h-5 bg-black rounded-full"></div>
+                    <div class="w-1 h-3 bg-black rounded-full"></div>
+                    <div class="w-1 h-8 bg-black rounded-full"></div>
+                    <div class="w-1 h-12 bg-black rounded-full"></div>
+                    <div class="w-1 h-6 bg-black rounded-full"></div>
+                    <div class="w-1 h-4 bg-black rounded-full"></div>
+                    <div class="w-1 h-8 bg-black rounded-full"></div>
+                    <div class="w-1 h-3 bg-black rounded-full"></div>
+                    <div class="w-1 h-5 bg-black rounded-full"></div>
+                    <div class="w-1 h-10 bg-black rounded-full"></div>
+                    <div class="w-1 h-6 bg-black rounded-full"></div>
+                    <div class="w-1 h-8 bg-black rounded-full"></div>
+                    <div class="w-1 h-4 bg-black rounded-full"></div> <span class="ml-auto font-mono text-sm">3:35</span>
+                </div>
+
+                <div class="w-full flex items-center justify-between px-4">
+                    <button class="hover:text-gray-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" /></svg></button>
+                    
+                    <button class="hover:text-gray-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 0 1 0-1.953l7.108-4.062A1.125 1.125 0 0 1 21 8.688v8.123ZM11.25 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 0 1 0-1.953L9.567 7.71a1.125 1.125 0 0 1 1.683.977v8.123Z" /></svg></button>
+
+                    <button class="bg-black text-white p-4 rounded-full hover:scale-105 transition-transform shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" /></svg>
+                    </button>
+
+                    <button class="hover:text-gray-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 0 1 0 1.953l-7.108 4.062A1.125 1.125 0 0 1 3 16.81V8.688ZM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 0 1 0 1.953l-7.108 4.062a1.125 1.125 0 0 1-1.683-.977V8.688Z" /></svg></button>
+
+                    <button class="hover:text-gray-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /></svg></button>
+                </div>
+            </div>
+
+            <div class="flex-1 overflow-hidden">
+                
+                <div class="mb-8">
+                    <div class="flex justify-between items-end mb-4">
+                        <h2 class="text-4xl font-bold">Music Categories</h2>
+                        <button class="text-sm font-bold underline">View all</button>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-black text-white px-4 py-1 rounded-full text-sm border-2 border-black">Classic</span>
+                        <span class="bg-white text-black px-4 py-1 rounded-full text-sm border-2 border-black hover:bg-gray-200 cursor-pointer">90s</span>
+                        <span class="bg-white text-black px-4 py-1 rounded-full text-sm border-2 border-black hover:bg-gray-200 cursor-pointer">New</span>
+                        <span class="bg-white text-black px-4 py-1 rounded-full text-sm border-2 border-black hover:bg-gray-200 cursor-pointer">Instrumental</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4 mb-8">
+                    <div>
+                        <div class="w-full aspect-[3/4] bg-gray-300 rounded-lg border-2 border-black mb-2 relative overflow-hidden group">
+                             <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition"></div>
+                        </div>
+                        <h3 class="font-bold">Daily Chaos</h3>
+                        <p class="text-xs text-gray-500">by Emily Bryan</p>
+                    </div>
+                     <div>
+                        <div class="w-full aspect-[3/4] bg-gray-400 rounded-lg border-2 border-black mb-2 relative overflow-hidden"></div>
+                        <h3 class="font-bold">Simple Things</h3>
+                        <p class="text-xs text-gray-500">by Ryan Poppin</p>
+                    </div>
+                     <div>
+                        <div class="w-full aspect-[3/4] bg-gray-300 rounded-lg border-2 border-black mb-2 relative overflow-hidden"></div>
+                        <h3 class="font-bold">Not so good</h3>
+                        <p class="text-xs text-gray-500">by Bryan Thomas</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-4">Favorite Playlists (4)</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-2 hover:bg-[#e4e4e4] rounded-lg transition">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-400 rounded-md border-2 border-black"></div>
+                                <div>
+                                    <h4 class="font-bold leading-none">Best of Eren</h4>
+                                    <p class="text-xs text-gray-500">32 songs in this list</p>
+                                </div>
+                            </div>
+                            <button class="border-2 border-black rounded-full p-2 hover:bg-black hover:text-white transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" /></svg>
+                            </button>
+                        </div>
+
+                         <div class="flex items-center justify-between p-2 hover:bg-[#e4e4e4] rounded-lg transition">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-500 rounded-md border-2 border-black"></div>
+                                <div>
+                                    <h4 class="font-bold leading-none">Gym Phonk</h4>
+                                    <p class="text-xs text-gray-500">12 songs in this list</p>
+                                </div>
+                            </div>
+                            <button class="border-2 border-black rounded-full p-2 hover:bg-black hover:text-white transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
       `;
     case "favorites":
       return `
@@ -367,7 +466,7 @@ class MiniPhonograph extends HTMLElement {
           position: absolute;
           top: 10px;
           right: 10px;
-          width: 30px;
+          width: 40px;
           height: 40px;
           background: #495057;
           border-radius: 50%;
@@ -379,7 +478,7 @@ class MiniPhonograph extends HTMLElement {
           position: absolute;
           top: 15px;
           right: 25px;
-          width: 80px;
+          width: 90px;
           height: 6px;
           background: #adb5bd;
           transform-origin: right center;
