@@ -2,40 +2,248 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music2D</title>
 
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Pixel font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <link
       href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
       rel="stylesheet"
     />
-    <!--Icon-->
-    <link rel="shortcut icon" href="./assets/logo2d.ico" type="image/x-icon" />
 
-    <!--Stylesheet-->
     <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="./assets/logo2d.ico" type="image/x-icon" />
   </head>
-  <body>
-    <!--header-->
-    <t-header></t-header>
-    <!--sidebar-->
-    <div
-      class="bg-white h-screen w-screen flex flex-col-reverse md:flex-row overflow-hidden"
+  <body
+    class="bg-[#e4e4e4] h-screen w-screen flex flex-col overflow-hidden text-black"
+  >
+    <header
+      class="w-full p-4 flex flex-wrap md:flex-nowrap justify-between items-center gap-4 bg-[#e4e4e4] shrink-0 z-40"
     >
-      <t-sidebar class="shrink-0"></t-sidebar>
-
+      <div class="w-full md:w-[70%] flex flex-row items-center gap-4">
+        <div class="flex flex-row items-center shrink-0">
+          <div
+            class="h-[40px] w-[40px] bg-black rounded-full flex items-center justify-center text-white"
+          >
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <h1 class="text-3xl md:text-5xl ml-2 font-bold">Music2D</h1>
+        </div>
+        <div
+          class="flex items-center flex-1 bg-[#e4e4e4] border-2 border-black rounded-full px-4 py-2"
+        >
+          <i class="fa-solid fa-magnifying-glass mr-3 text-gray-600"></i>
+          <input
+            type="text"
+            placeholder="Search..."
+            class="w-full bg-transparent outline-none border-none placeholder-gray-600 text-black"
+          />
+        </div>
+      </div>
       <div
-        id="tab-content"
-        class="flex-1 p-8 overflow-y-auto bg-[#e4e4e4] border border-solid border-black"
-      ></div>
+        class="w-full md:w-auto flex flex-row justify-end items-center gap-6 text-xl"
+      >
+        <button class="hover:text-gray-600">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <button class="hover:text-gray-600">
+          <i class="fa-solid fa-user"></i>
+        </button>
+      </div>
+    </header>
+
+    <div
+      class="flex-1 flex flex-col-reverse md:flex-row overflow-hidden relative"
+    >
+      <aside
+        class="shrink-0 w-full h-20 md:h-full md:w-24 bg-[#e4e4e4] flex flex-row md:flex-col items-center justify-around md:justify-start md:py-6 md:gap-8 z-50"
+      >
+        <button
+          onclick="switchTab('home')"
+          id="btn-home"
+          class="tab-btn p-4 text-gray-900 transition-all"
+        >
+          <i class="fa-solid fa-house text-xl"></i>
+        </button>
+
+        <button
+          onclick="switchTab('favorites')"
+          id="btn-favorites"
+          class="tab-btn p-4 text-gray-500 transition-all"
+        >
+          <i class="fa-solid fa-heart text-xl"></i>
+        </button>
+
+        <button
+          onclick="switchTab('library')"
+          id="btn-library"
+          class="tab-btn p-4 text-gray-500 transition-all"
+        >
+          <i class="fa-solid fa-book text-xl"></i>
+        </button>
+
+        <button
+          onclick="switchTab('albums')"
+          id="btn-albums"
+          class="tab-btn p-4 text-gray-500 transition-all"
+        >
+          <i class="fa-solid fa-compact-disc text-xl"></i>
+        </button>
+      </aside>
+
+      <main class="flex-1 p-8 overflow-y-auto bg-[#e4e4e4] pb-24 md:pb-8">
+        <div id="tab-home" class="tab-content h-full">
+          <div class="flex flex-col xl:flex-row gap-12 h-full">
+            <div
+              class="w-full xl:w-[400px] shrink-0 flex flex-col items-center"
+            >
+              <div class="mb-6 scale-110">
+                <div class="phono-unit">
+                  <div class="phono-deck">
+                    <div class="phono-platter">
+                      <div class="phono-grooves">
+                        <div class="phono-label"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="phono-arm-pivot"></div>
+                  <div class="phono-arm-wand"></div>
+                </div>
+              </div>
+
+              <div class="w-full text-left mb-2">
+                <h1 class="text-4xl font-bold mb-1">The Suffering</h1>
+                <span
+                  class="bg-black text-white text-xs px-2 py-1 rounded-full uppercase tracking-wider"
+                  >Classic</span
+                >
+              </div>
+
+              <div class="w-full flex items-center gap-1 h-12 mb-6 opacity-70">
+                <div class="w-1 h-4 bg-black rounded-full"></div>
+                <div class="w-1 h-8 bg-black rounded-full"></div>
+                <div class="w-1 h-6 bg-black rounded-full"></div>
+                <div class="w-1 h-12 bg-black rounded-full"></div>
+                <div class="w-1 h-5 bg-black rounded-full"></div>
+                <div class="w-1 h-3 bg-black rounded-full"></div>
+                <div class="w-1 h-8 bg-black rounded-full"></div>
+                <span class="ml-auto font-mono text-sm">3:35</span>
+              </div>
+
+              <div
+                class="w-full flex items-center justify-between px-4 text-2xl"
+              >
+                <button class="hover:text-gray-600">
+                  <i class="fa-solid fa-shuffle"></i>
+                </button>
+                <button class="hover:text-gray-600">
+                  <i class="fa-solid fa-backward-step"></i>
+                </button>
+                <button
+                  class="bg-black text-white w-16 h-16 rounded-full hover:scale-105 transition-transform shadow-lg flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-play"></i>
+                </button>
+                <button class="hover:text-gray-600">
+                  <i class="fa-solid fa-forward-step"></i>
+                </button>
+                <button class="hover:text-gray-600">
+                  <i class="fa-solid fa-repeat"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex-1">
+              <div class="flex justify-between items-end mb-4">
+                <h2 class="text-4xl font-bold">Music Categories</h2>
+                <button class="text-sm font-bold underline">View all</button>
+              </div>
+
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div
+                  class="aspect-square bg-gray-300 rounded border-2 border-black flex flex-col items-center justify-center font-bold relative group cursor-pointer overflow-hidden"
+                >
+                  <img
+                    src="https://picsum.photos/300/300?grayscale"
+                    class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition"
+                  />
+                  <span class="z-10 bg-white px-2 border-2 border-black"
+                    >Daily Chaos</span
+                  >
+                </div>
+                <div
+                  class="aspect-square bg-gray-400 rounded border-2 border-black flex flex-col items-center justify-center font-bold relative group cursor-pointer overflow-hidden"
+                >
+                  <img
+                    src="https://picsum.photos/301/301?grayscale"
+                    class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition"
+                  />
+                  <span class="z-10 bg-white px-2 border-2 border-black"
+                    >Simple</span
+                  >
+                </div>
+                <div
+                  class="aspect-square bg-gray-300 rounded border-2 border-black flex flex-col items-center justify-center font-bold relative group cursor-pointer overflow-hidden"
+                >
+                  <img
+                    src="https://picsum.photos/302/302?grayscale"
+                    class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition"
+                  />
+                  <span class="z-10 bg-white px-2 border-2 border-black"
+                    >Bad</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-favorites" class="tab-content hidden">
+          <h1 class="text-4xl font-bold mb-6">Liked Songs 💖</h1>
+          <ul class="space-y-4">
+            <li
+              class="p-4 border-2 border-black bg-white rounded flex justify-between items-center hover:bg-gray-100 cursor-pointer"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 bg-black text-white flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-music"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl">Starboy</h3>
+                  <p class="text-gray-500 text-sm">The Weeknd</p>
+                </div>
+              </div>
+              <span>3:50</span>
+            </li>
+          </ul>
+        </div>
+
+        <div id="tab-library" class="tab-content hidden">
+          <h1 class="text-4xl font-bold mb-6">Your Library</h1>
+          <div class="flex gap-4">
+            <div
+              class="w-40 h-40 border-2 border-black flex items-center justify-center bg-gray-200"
+            >
+              <span>Playlist #1</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-albums" class="tab-content hidden">
+          <h1 class="text-4xl font-bold mb-6">Albums</h1>
+          <p>Album grid goes here...</p>
+        </div>
+      </main>
     </div>
-    <!--script-->
+
     <script src="script.js"></script>
   </body>
 </html>
