@@ -1,3 +1,12 @@
+const songs = [
+  { id: 1, title: "Nee Pothum Ennaku", src: "./songs/neepothum.mp4" },
+  { id: 2, title: "Aasa kooda", src: "./songs/aasakooda.mp4" },
+  { id: 3, title: "Muththa Mazhai", src: "./songs/muththamazhai.mp4" },
+  { id: 4, title: "Vikram Title", src: "./songs/vikramtitle.mp4" },
+  { id: 5, title: "Nee Kavithaigala", src: "./songs/neekavithaigala.mp4" },
+  { id: 6, title: "Ullala Ullala", src: "./songs/ullalaullala.mp4" },
+];
+
 function switchTab(tabName) {
   // 1. Hide all tab contents
   document.querySelectorAll(".tab-content").forEach((content) => {
