@@ -108,7 +108,7 @@
                   <div class="phono-deck">
                     <div class="phono-platter">
                       <div class="phono-grooves">
-                        <div class="phono-label"></div>
+                        <div class="phono-label">Music2D</div>
                       </div>
                     </div>
                   </div>
@@ -117,45 +117,59 @@
                 </div>
               </div>
 
-              <div class="w-full text-left mb-2">
-                <h1 class="text-4xl font-bold mb-1">The Suffering</h1>
-                <span
-                  class="bg-black text-white text-xs px-2 py-1 rounded-full uppercase tracking-wider"
-                  >Classic</span
-                >
-              </div>
-
-              <div class="w-full flex items-center gap-1 h-12 mb-6 opacity-70">
-                <div class="w-1 h-4 bg-black rounded-full"></div>
-                <div class="w-1 h-8 bg-black rounded-full"></div>
-                <div class="w-1 h-6 bg-black rounded-full"></div>
-                <div class="w-1 h-12 bg-black rounded-full"></div>
-                <div class="w-1 h-5 bg-black rounded-full"></div>
-                <div class="w-1 h-3 bg-black rounded-full"></div>
-                <div class="w-1 h-8 bg-black rounded-full"></div>
-                <span class="ml-auto font-mono text-sm">3:35</span>
-              </div>
-
+              <!--playing stuff-->
               <div
-                class="w-full flex items-center justify-between px-4 text-2xl"
+                class="w-full flex items-center justify-between px-4 text-2xl flex-col"
               >
-                <button class="hover:text-gray-600">
-                  <i class="fa-solid fa-shuffle"></i>
-                </button>
-                <button class="hover:text-gray-600">
-                  <i class="fa-solid fa-backward-step"></i>
-                </button>
-                <button
-                  class="bg-black text-white w-16 h-16 rounded-full hover:scale-105 transition-transform shadow-lg flex items-center justify-center"
-                >
-                  <i class="fa-solid fa-play"></i>
-                </button>
-                <button class="hover:text-gray-600">
-                  <i class="fa-solid fa-forward-step"></i>
-                </button>
-                <button class="hover:text-gray-600">
-                  <i class="fa-solid fa-repeat"></i>
-                </button>
+                <div class="w-full text-left m-2">
+                  <h1 id="song-title" class="text-3xl font-bold">
+                    Select a song
+                  </h1>
+
+                  <p id="song-artist" class="text-md text-gray-600">
+                    Artist Name
+                  </p>
+                </div>
+                <div class="w-full mb-6">
+                  <input
+                    id="progress-bar"
+                    type="range"
+                    value="0"
+                    class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-black"
+                  />
+
+                  <div class="flex justify-between text-xs font-mono mt-1">
+                    <span id="current-time">0:00</span>
+                    <span id="duration">0:00</span>
+                  </div>
+                </div>
+                <div class="w-full flex flex-row items-center justify-around">
+                  <button class="hover:text-gray-600">
+                    <i class="fa-solid fa-shuffle"></i>
+                  </button>
+
+                  <button id="prev-btn" class="hover:text-gray-600">
+                    <i class="fa-solid fa-backward-step"></i>
+                  </button>
+
+                  <button
+                    id="play-pause-btn"
+                    class="bg-black text-white w-16 h-16 rounded-full hover:scale-105 transition-transform shadow-lg flex items-center justify-center"
+                  >
+                    <i class="fa-solid fa-play"></i>
+                  </button>
+
+                  <button id="next-btn" class="hover:text-gray-600">
+                    <i class="fa-solid fa-forward-step"></i>
+                  </button>
+
+                  <button
+                    id="loop-btn"
+                    class="text-gray-400 hover:text-black transition-colors"
+                  >
+                    <i class="fa-solid fa-repeat"></i>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -165,42 +179,46 @@
                 <button class="text-sm font-bold underline">View all</button>
               </div>
 
-              <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div
+                class="grid grid-cols-2 md:grid-cols-3 gap-4"
+                id="album-container"
+              >
                 <div
-                  class="aspect-square bg-gray-300 rounded border-2 border-black flex flex-col items-center justify-center font-bold relative group cursor-pointer overflow-hidden"
+                  class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden"
                 >
                   <img
-                    src="https://picsum.photos/300/300?grayscale"
+                    src="./images/devotional.jpg"
                     class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition"
                   />
-                  <span class="z-10 bg-white px-2 border-2 border-black"
-                    >Daily Chaos</span
+                  <span class="z-10 bg-white px-2 text-xl w-full text-center"
+                    >Devotion</span
                   >
                 </div>
                 <div
-                  class="aspect-square bg-gray-400 rounded border-2 border-black flex flex-col items-center justify-center font-bold relative group cursor-pointer overflow-hidden"
+                  class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden"
                 >
                   <img
-                    src="https://picsum.photos/301/301?grayscale"
+                    src="./images/sad.jpg"
                     class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition"
                   />
-                  <span class="z-10 bg-white px-2 border-2 border-black"
-                    >Simple</span
+                  <span class="z-10 bg-white px-2 text-xl w-full text-center"
+                    >Melonchaly</span
                   >
                 </div>
                 <div
-                  class="aspect-square bg-gray-300 rounded border-2 border-black flex flex-col items-center justify-center font-bold relative group cursor-pointer overflow-hidden"
+                  class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden"
                 >
                   <img
-                    src="https://picsum.photos/302/302?grayscale"
+                    src="./images/motivation.jpg"
                     class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition"
                   />
-                  <span class="z-10 bg-white px-2 border-2 border-black"
-                    >Bad</span
+                  <span class="z-10 bg-white px-2 text-xl w-full text-center"
+                    >Motivation</span
                   >
                 </div>
               </div>
             </div>
+            <!--Loading songs-->
           </div>
         </div>
 

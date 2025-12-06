@@ -80,6 +80,9 @@ body {
   background: #dee2e6;
   border-radius: 50%;
   border: 2px solid #212529;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .phono-arm-pivot {
