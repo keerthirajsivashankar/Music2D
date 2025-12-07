@@ -197,3 +197,15 @@ audio.addEventListener("ended", () => {
     nextSong();
   }
 });
+
+// Function to play a specific song by its Index ID
+function playSpecificSong(songIndex) {
+  // 1. Update the global index
+  currentSongIndex = songIndex;
+
+  // 2. Load the data (Title, Artist, Audio Source)
+  loadSong(songs[currentSongIndex]);
+
+  // 3. Start Playing immediately
+  playSong();
+}
