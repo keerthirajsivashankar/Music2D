@@ -6,6 +6,7 @@ const songs = [
     category: "Melonchaly",
     artist: "Pradeep",
     imageulr: "./images/neepothum.jpg",
+    fav: true,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const songs = [
     category: "Love",
     artist: "Sai Abyankar",
     imageulr: " ./images/aasakooda.jpg",
+    fav: false,
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const songs = [
     category: "Love",
     artist: "Chinmayi",
     imageulr: " ./images/muththamazhai.jpg",
+    fav: false,
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const songs = [
     category: "Action",
     artist: "Anirudh",
     imageulr: " ./images/vikramtitle.jpg",
+    fav: false,
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ const songs = [
     category: "Romantic",
     artist: "Pradeep Kumar",
     imageulr: "./images/neekavithai.jpg",
+    fav: true,
   },
 ];
 
@@ -209,3 +214,51 @@ function playSpecificSong(songIndex) {
   // 3. Start Playing immediately
   playSong();
 }
+
+function separateFavSongs() {
+  let favSongs = [];
+  for (let i = 0; i < songs.length; i++) {
+    if (songs[i].fav) {
+      favSongs.push(songs[i]);
+    }
+  }
+  return favSongs;
+}
+
+function addFavSongs() {
+  const favSongContainer = document.getElementById("song-container");
+  favSongContainer.innerHTML = "";
+  const favoriteSongs = separateFavSongs();
+
+  favoriteSongs.forEach((song) => {
+    const SongHtml = `
+    <div
+                    class="flex items-center justify-between p-2 hover:bg-gray-200 rounded-lg transition group shadow-md hover:shadow-lg transition duration-300"
+                  >
+                    <div class="flex items-center gap-4">
+                      <img
+                        src="${song.imageulr}"
+                        class="w-12 h-12 rounded-md border-2 border-black object-cover"
+                      />
+                      <div>
+                        <h4 class="font-bold leading-none">
+                         ${song.title}
+                        </h4>
+                        <p class="text-xs text-gray-500">${song.artist}</p>
+                      </div>
+                    </div>
+
+                    <button
+                      onclick="playSpecificSong(${song.id - 1})"
+                      class="border-2 border-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-black hover:text-white transition"
+                    >
+                      <i class="fa-solid fa-play"></i>
+                    </button>
+                  </div>
+`;
+
+    favSongContainer.innerHTML += SongHtml;
+  });
+}
+
+addFavSongs();

@@ -184,7 +184,7 @@
                 id="album-container"
               >
                 <div
-                  class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden"
+                  class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden shadow-md hover:shadow-xl transition"
                 >
                   <img
                     src="./images/devotional.jpg"
@@ -195,7 +195,7 @@
                   >
                 </div>
                 <div
-                  class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden"
+                  class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden shadow-md hover:shadow-xl transition"
                 >
                   <img
                     src="./images/sad.jpg"
@@ -206,7 +206,7 @@
                   >
                 </div>
                 <div
-                  class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden"
+                  class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden shadow-md hover:shadow-xl transition"
                 >
                   <img
                     src="./images/motivation.jpg"
@@ -217,56 +217,15 @@
                   >
                 </div>
               </div>
+              <!--Loading songs-->
+              <div id="home-songs" class="mt-4">
+                <h2 class="text-2xl font-bold mb-4">Favorite Songs</h2>
+                <div class="space-y-4" id="song-container">
+                  <!--dynamic fav songs-->
+                </div>
+              </div>
             </div>
             <!--Loading songs-->
-          </div>
-          <div>
-            <h2 class="text-2xl font-bold mb-4">Top Songs</h2>
-            <div class="space-y-4">
-              <div
-                class="flex items-center justify-between p-2 hover:bg-gray-200 rounded-lg transition group"
-              >
-                <div class="flex items-center gap-4">
-                  <img
-                    src="./images/cover1.jpg"
-                    class="w-12 h-12 rounded-md border-2 border-black object-cover"
-                  />
-                  <div>
-                    <h4 class="font-bold leading-none">Nee Pothum Ennaku</h4>
-                    <p class="text-xs text-gray-500">Pradeep</p>
-                  </div>
-                </div>
-
-                <button
-                  onclick="playSpecificSong(0)"
-                  class="border-2 border-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-black hover:text-white transition"
-                >
-                  <i class="fa-solid fa-play"></i>
-                </button>
-              </div>
-
-              <div
-                class="flex items-center justify-between p-2 hover:bg-gray-200 rounded-lg transition group"
-              >
-                <div class="flex items-center gap-4">
-                  <img
-                    src="./images/starboy.jpg"
-                    class="w-12 h-12 rounded-md border-2 border-black object-cover"
-                  />
-                  <div>
-                    <h4 class="font-bold leading-none">Starboy</h4>
-                    <p class="text-xs text-gray-500">The Weeknd</p>
-                  </div>
-                </div>
-
-                <button
-                  onclick="playSpecificSong(1)"
-                  class="border-2 border-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-black hover:text-white transition"
-                >
-                  <i class="fa-solid fa-play"></i>
-                </button>
-              </div>
-            </div>
           </div>
         </div>
 
