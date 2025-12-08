@@ -42,6 +42,51 @@ const songs = [
     category: "Romantic",
     artist: "Pradeep Kumar",
     imageulr: "./images/neekavithai.jpg",
+    fav: false,
+  },
+  {
+    id: 6,
+    title: "Ullaallaa Ullaallaa",
+    src: "./songs/ullaallaa.mp3",
+    category: "Fun",
+    artist: "Anirudh",
+    imageulr: "./images/ullaallaa.jpg",
+    fav: false,
+  },
+  {
+    id: 7,
+    title: "Sithira Puthiri",
+    src: "./songs/sithiraputhiri.mp3",
+    category: "Love",
+    artist: "Sai Abyankar",
+    imageulr: "./images/sithitaputhiri.jpg",
+    fav: false,
+  },
+  {
+    id: 8,
+    title: "Journey",
+    src: "./songs/journey.mp3",
+    category: "Motivation",
+    artist: "Anirudh",
+    imageulr: "./images/journey.jpg",
+    fav: true,
+  },
+  {
+    id: 9,
+    title: "Power House",
+    src: "./songs/powerhouse.mp3",
+    category: "Action",
+    artist: "Anirudh",
+    imageulr: "./images/powerhouse.jpg",
+    fav: false,
+  },
+  {
+    id: 10,
+    title: "En Iniya Thanimai",
+    src: "./songs/thanimai.mp3",
+    category: "Motivation",
+    artist: "Sid SriRam",
+    imageulr: "./images/thanimai.jpg",
     fav: true,
   },
 ];
@@ -233,12 +278,12 @@ function addFavSongs() {
   favoriteSongs.forEach((song) => {
     const SongHtml = `
     <div
-                    class="flex items-center justify-between p-2 hover:bg-gray-200 rounded-lg transition group shadow-md hover:shadow-lg transition duration-300"
+                    class="flex items-center justify-between p-2 hover:bg-gray-200 rounded-lg transition group shadow-md hover:shadow-lg transition duration-300 border border-gray-400"
                   >
                     <div class="flex items-center gap-4">
                       <img
                         src="${song.imageulr}"
-                        class="w-12 h-12 rounded-md border-2 border-black object-cover"
+                        class="w-12 h-12 rounded-md border border-gray-300 object-cover"
                       />
                       <div>
                         <h4 class="font-bold leading-none">
@@ -262,3 +307,37 @@ function addFavSongs() {
 }
 
 addFavSongs();
+
+function likedsongs() {
+  const wholeList = document.getElementById("whole-list");
+
+  songs.forEach((song) => {
+    const listItem = `<li
+              class="p-4 border border-gray-400 shadow-sm md:shadow-lg flex justify-between items-center  cursor-pointer hover:bg-gray-100 transition rounded-xl"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 bg-black text-white flex items-center justify-center rounded-md"
+                >
+                  <img
+                        src="${song.imageulr}"
+                        class="w-12 h-12 rounded-md border border-gray-300 object-cover"
+                      />
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl">${song.title}</h3>
+                  <p class="text-gray-500 text-sm">${song.artist}</p>
+                </div>
+              </div>
+              <button
+                      onclick="playSpecificSong(${song.id - 1})"
+                      class="border-2 border-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-black hover:text-white transition"
+                    >
+                      <i class="fa-solid fa-play"></i>
+                    </button>
+            </li>`;
+    wholeList.innerHTML += listItem;
+  });
+}
+
+likedsongs();
