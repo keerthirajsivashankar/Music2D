@@ -7,6 +7,7 @@ const songs = [
     artist: "Pradeep",
     imageulr: "./images/neepothum.jpg",
     fav: true,
+    liked: true,
   },
   {
     id: 2,
@@ -16,15 +17,17 @@ const songs = [
     artist: "Sai Abyankar",
     imageulr: " ./images/aasakooda.jpg",
     fav: false,
+    liked: true,
   },
   {
     id: 3,
-    title: "Muththa Mazhai",
-    src: "./songs/muththamazhai.mp3",
-    category: "Love",
-    artist: "Chinmayi",
-    imageulr: " ./images/muththamazhai.jpg",
-    fav: false,
+    title: "En Iniya Thanimai",
+    src: "./songs/thanimai.mp3",
+    category: "Motivation",
+    artist: "Sid SriRam",
+    imageulr: "./images/thanimai.jpg",
+    fav: true,
+    liked: false,
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ const songs = [
     artist: "Anirudh",
     imageulr: " ./images/vikramtitle.jpg",
     fav: false,
+    liked: true,
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ const songs = [
     artist: "Pradeep Kumar",
     imageulr: "./images/neekavithai.jpg",
     fav: false,
+    liked: true,
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ const songs = [
     artist: "Anirudh",
     imageulr: "./images/ullaallaa.jpg",
     fav: false,
+    liked: false,
   },
   {
     id: 7,
@@ -61,33 +67,37 @@ const songs = [
     artist: "Sai Abyankar",
     imageulr: "./images/sithitaputhiri.jpg",
     fav: false,
+    liked: false,
   },
   {
     id: 8,
-    title: "Journey",
-    src: "./songs/journey.mp3",
-    category: "Motivation",
-    artist: "Anirudh",
-    imageulr: "./images/journey.jpg",
-    fav: true,
-  },
-  {
-    id: 9,
     title: "Power House",
     src: "./songs/powerhouse.mp3",
     category: "Action",
     artist: "Anirudh",
     imageulr: "./images/powerhouse.jpg",
     fav: false,
+    liked: false,
+  },
+  {
+    id: 9,
+    title: "Journey",
+    src: "./songs/journey.mp3",
+    category: "Motivation",
+    artist: "Anirudh",
+    imageulr: "./images/journey.jpg",
+    fav: true,
+    liked: false,
   },
   {
     id: 10,
-    title: "En Iniya Thanimai",
-    src: "./songs/thanimai.mp3",
-    category: "Motivation",
-    artist: "Sid SriRam",
-    imageulr: "./images/thanimai.jpg",
-    fav: true,
+    title: "Muththa Mazhai",
+    src: "./songs/muththamazhai.mp3",
+    category: "Love",
+    artist: "Chinmayi",
+    imageulr: " ./images/muththamazhai.jpg",
+    fav: false,
+    liked: true,
   },
 ];
 
@@ -312,7 +322,8 @@ function likedsongs() {
   const wholeList = document.getElementById("whole-list");
 
   songs.forEach((song) => {
-    const listItem = `<li
+    if (song.liked) {
+      const listItem = `<li
               class="p-4 border border-gray-400 shadow-sm md:shadow-lg flex justify-between items-center  cursor-pointer hover:bg-gray-100 transition rounded-xl"
             >
               <div class="flex items-center gap-4">
@@ -336,8 +347,44 @@ function likedsongs() {
                       <i class="fa-solid fa-play"></i>
                     </button>
             </li>`;
-    wholeList.innerHTML += listItem;
+      wholeList.innerHTML += listItem;
+    }
   });
 }
 
 likedsongs();
+
+function allSongsList() {
+  const library = document.getElementById("library");
+  songs.forEach((song) => {
+    // Note: Check if your property is named 'img' or 'imageulr' (typo?)
+    // I used 'song.img' based on our previous step.
+    const songItem = `
+      <div class="w-64 border border-gray-300 bg-gray-200 shadow-md rounded-lg hover:shadow-xl transition duration-300 overflow-hidden">
+        
+        <img 
+          src="${song.imageulr}" 
+          class="w-full h-48 object-cover" 
+          alt="${song.title}" 
+        />
+        
+        <div class="p-2 flex justify-between items-center">
+          <div class="overflow-hidden">
+             <h2 class="font-bold truncate w-32">${song.title}</h2>
+            <p class="text-sm text-gray-600 truncate">${song.artist}</p>
+          </div>
+
+          <button
+            onclick="playSpecificSong(${song.id})" 
+            class="shrink-0 border-2 border-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-black hover:text-white transition"
+          >
+            <i class="fa-solid fa-play"></i>
+          </button>
+        </div>
+      </div>`;
+
+    library.innerHTML += songItem;
+  });
+}
+
+allSongsList();
