@@ -177,7 +177,7 @@
               <div class="flex justify-between items-end mb-4">
                 <h2 class="text-4xl font-bold">Music Categories</h2>
                 <button
-                  onclick="switchTab('library')"
+                  onclick="switchTab('albums')"
                   class="text-sm font-bold underline"
                 >
                   View all
@@ -190,6 +190,7 @@
               >
                 <div
                   class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden shadow-md hover:shadow-xl transition border border-black duration-300"
+                  onclick="switchTab('albums')"
                 >
                   <img
                     src="./images/devotional.jpg"
@@ -202,6 +203,7 @@
                 </div>
                 <div
                   class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden shadow-md hover:shadow-xl transition border border-black duration-300"
+                  onclick="switchTab('albums')"
                 >
                   <img
                     src="./images/sad.jpg"
@@ -214,6 +216,7 @@
                 </div>
                 <div
                   class="aspect-square bg-gray-300 rounded-xl flex flex-col items-center justify-end font-bold relative group cursor-pointer overflow-hidden shadow-md hover:shadow-xl transition border border-black duration-300"
+                  onclick="switchTab('albums')"
                 >
                   <img
                     src="./images/motivation.jpg"
@@ -246,11 +249,22 @@
 
         <div id="tab-library" class="tab-content hidden">
           <h1 class="text-4xl font-bold mb-6">Your library</h1>
-          <div class="flex gap-4 flex-wrap" id="library"></div>
+          <div
+            class="flex gap-4 flex-wrap justify-center items-center"
+            id="library"
+          >
+            <!--dynamic library songs-->
+          </div>
         </div>
 
         <div id="tab-albums" class="tab-content hidden" id="albums-tab">
           <h1 class="text-4xl font-bold mb-6">Albums</h1>
+          <div
+            class="flex gap-4 flex-col justify-center items-center"
+            id="albums-container"
+          >
+            <!--dynamic albums-->
+          </div>
         </div>
       </main>
     </div>

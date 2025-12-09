@@ -364,7 +364,7 @@ function allSongsList() {
         
         <img 
           src="${song.imageulr}" 
-          class="w-full h-48 object-cover" 
+          class="w-full h-58 object-cover" 
           alt="${song.title}" 
         />
         
@@ -388,3 +388,66 @@ function allSongsList() {
 }
 
 allSongsList();
+
+function CategoryList() {
+  let categories = [];
+  songs.forEach((song) => {
+    if (!categories.includes(song.category)) {
+      categories.push(song.category);
+    }
+  });
+  return categories;
+}
+
+const categories = CategoryList();
+console.log(categories);
+
+function displayCategories() {
+  const categoryContainer = document.getElementById("albums-container");
+  categories.forEach((category) => {
+    const categoryItem = `
+     <div
+            class="flex gap-4 flex-col justify-center items-center w-full"
+            
+          >
+            <h1 class="font-bold text-3xl border-b border-black">${category}</h1>
+            <div
+              class=" flex flex-wrap justify-center items-center gap-4 w-full"
+              id="${category}"
+            ></div>
+      </div>
+    `;
+    categoryContainer.innerHTML += categoryItem;
+    const currentCategoryDiv = document.getElementById(category);
+    songs.forEach((song) => {
+      if (song.category === category) {
+        const songHtml = `<div
+                class="w-64 border border-gray-300 bg-gray-200 shadow-md rounded-lg hover:shadow-xl transition duration-300 overflow-hidden"
+              >
+                <img
+                  src="${song.imageulr}"
+                  class="w-full h-58 object-cover"
+                  alt="${song.title}"
+                />
+
+                <div class="p-2 flex justify-between items-center">
+                  <div class="overflow-hidden">
+                    <h2 class="font-bold truncate w-32">${song.title}</h2>
+                    <p class="text-sm text-gray-600 truncate">${song.artist}</p>
+                  </div>
+
+                  <button
+                    onclick="playSpecificSong(${song.id - 1})"
+                    class="shrink-0 border-2 border-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-black hover:text-white transition"
+                  >
+                    <i class="fa-solid fa-play"></i>
+                  </button>
+                </div>
+              </div>`;
+        currentCategoryDiv.innerHTML += songHtml;
+      }
+    });
+  });
+}
+
+displayCategories();
