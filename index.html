@@ -143,9 +143,14 @@
                     <span id="duration">0:00</span>
                   </div>
                 </div>
-                <div class="w-full flex flex-row items-center justify-around">
-                  <button class="hover:text-gray-600">
-                    <i class="fa-solid fa-shuffle"></i>
+                <div
+                  class="w-full flex flex-row items-center justify-around p-4"
+                >
+                  <button
+                    id="like-btn"
+                    class="hover:text-red-500 transition-colors text-gray-600"
+                  >
+                    <i class="fa-regular fa-heart"></i>
                   </button>
 
                   <button id="prev-btn" class="hover:text-gray-600">
@@ -154,7 +159,7 @@
 
                   <button
                     id="play-pause-btn"
-                    class="bg-black text-white w-16 h-16 rounded-full hover:scale-105 transition-transform shadow-lg flex items-center justify-center"
+                    class="bg-black text-white w-12 h-12 rounded-full hover:scale-105 transition-transform shadow-lg flex items-center justify-center"
                   >
                     <i class="fa-solid fa-play"></i>
                   </button>
@@ -242,7 +247,7 @@
 
         <div id="tab-favorites" class="tab-content hidden">
           <h1 class="text-4xl font-bold mb-6">All Favorite Songs</h1>
-          <ul class="space-y-4" id="whole-list">
+          <ul class="space-y-2" id="whole-list">
             <!--dynamic fav songs-->
           </ul>
         </div>

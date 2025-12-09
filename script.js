@@ -138,6 +138,35 @@ const playBtn = document.getElementById("play-pause-btn");
 const NextBtn = document.getElementById("next-btn");
 const PrevBtn = document.getElementById("prev-btn");
 const loopBtn = document.getElementById("loop-btn");
+// 1. Select the button
+const likeBtn = document.getElementById("like-btn");
+
+// 2. The Toggle Function
+function toggleLike() {
+  // Get the specific object for the song currently playing
+  const currentSong = songs[currentSongIndex];
+
+  // Flip the boolean
+  currentSong.liked = !currentSong.liked;
+
+  // Update the UI immediately
+  updateLikeIcon(currentSong.liked);
+}
+
+// 3. Helper: Updates the visual icon
+function updateLikeIcon(isLiked) {
+  if (isLiked) {
+    // Liked: Solid Heart, Red Color
+    likeBtn.innerHTML = '<i class="fa-solid fa-heart"></i>';
+    likeBtn.classList.remove("text-gray-600");
+    likeBtn.classList.add("text-red-500");
+  } else {
+    // Not Liked: Outline Heart, Gray Color
+    likeBtn.innerHTML = '<i class="fa-regular fa-heart"></i>';
+    likeBtn.classList.remove("text-red-500");
+    likeBtn.classList.add("text-gray-600");
+  }
+}
 
 function toggleLoop() {
   if (audio.loop) {
@@ -159,6 +188,7 @@ function loadSong(song) {
   audio.src = song.src;
   SongTitleDis.innerHTML = song.title;
   SongArtistDis.innerHTML = song.artist;
+  updateLikeIcon(song.liked);
 }
 
 function playSong() {
@@ -211,6 +241,7 @@ playBtn.addEventListener("click", togglePlayPause);
 NextBtn.addEventListener("click", nextSong);
 PrevBtn.addEventListener("click", prevSong);
 loopBtn.addEventListener("click", toggleLoop);
+likeBtn.addEventListener("click", toggleLike);
 
 // --- PROGRESS BAR SELECTORS ---
 const progressBar = document.getElementById("progress-bar");
@@ -400,7 +431,6 @@ function CategoryList() {
 }
 
 const categories = CategoryList();
-console.log(categories);
 
 function displayCategories() {
   const categoryContainer = document.getElementById("albums-container");
