@@ -437,12 +437,12 @@ function displayCategories() {
   categories.forEach((category) => {
     const categoryItem = `
      <div
-            class="flex gap-4 flex-col justify-center items-center w-full"
+            class="flex gap-4 flex-col justify-center items-start w-full"
             
           >
             <h1 class="font-bold text-3xl border-b border-black">${category}</h1>
             <div
-              class=" flex flex-wrap justify-center items-center gap-4 w-full"
+              class=" flex flex-wrap justify-start items-start gap-4 w-full pb-4"
               id="${category}"
             ></div>
       </div>
